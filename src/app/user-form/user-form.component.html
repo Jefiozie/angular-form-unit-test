@@ -1,0 +1,29 @@
+<form #form="ngForm">
+    <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input
+            matInput
+            type="text"
+            name="name"
+            [(ngModel)]="value.name"
+            #name="ngModel"
+            required
+        />
+        <mat-error *ngIf="name.hasError('required')">name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Date of Birth:</mat-label>
+        <input
+            matInput
+            type="date"
+            name="date_of_birth"
+            [(ngModel)]="value.date_of_birth"
+            #date_of_birth="ngModel"
+            required
+        />
+        <mat-error *ngIf="date_of_birth.hasError('required')">date of birth is required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="isFormInvalid" (click)="onSaveClick()">Save</button>
+</form>
